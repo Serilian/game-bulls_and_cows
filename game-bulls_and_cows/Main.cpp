@@ -5,24 +5,29 @@
 #include <iostream>
 using namespace std;
 
-const char* GAME_PROMO = "Bulls and Cows - a genius word game";
+const string GAME_PROMO = "Bulls and Cows - a genius word game";
 
 //prototypes
-void printWelcomeMessage();
+void printWelcomeMessage(string message);
+void drawCowPictureInAscii();
 
 
 
 
 int main()
 {
-	printWelcomeMessage();
-	
-    return 0;
+	printWelcomeMessage(GAME_PROMO);
+	return 0;
 }
 
-void printWelcomeMessage()
+void printWelcomeMessage(string message)
 {
-	printf("Welcome to %s ! \n", GAME_PROMO);
+	printf("Welcome to %s ! \n", message);
+	drawCowPictureInAscii();
+}
+
+void drawCowPictureInAscii()
+{
 	cout << R"(
   ##########################################
   #            .=     ,        =.          #
