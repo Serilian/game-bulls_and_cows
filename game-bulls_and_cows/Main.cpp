@@ -2,13 +2,46 @@
 //
 
 #include "stdafx.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
+
+const char* GAME_PROMO = "Bulls and Cows - a genius word game";
+
+//prototypes
+void printWelcomeMessage();
+
+
 
 
 int main()
 {
-	cout << "Bulls and Cows game \n";
-	system("pause");
-	return 0;
+	printWelcomeMessage();
+	
+    return 0;
+}
+
+void printWelcomeMessage()
+{
+	printf("Welcome to %s ! \n", GAME_PROMO);
+	cout << R"(
+  ##########################################
+  #            .=     ,        =.          #
+  #   _  _   /'/    )\,/,/(_   \ \         #
+  #    `//-.|  (  ,\\)\//\)\/_  ) |        #
+  #    //___\   `\\\/\\/\/\\///'  /        #
+  # ,-"~`-._ `"--'_   `"""`  _ \`'"~-,_    #
+  # \       `-.  '_`.      .'_` \ ,-"~`/   #
+  #  `.__.-'`/   (-\        /-) |-.__,'    #
+  #    ||   |     \O)  /^\ (O/  |          #
+  #    `\\  |         /   `\    /          #
+  #      \\  \       /      `\ /           #
+  #       `\\ `-.  /' .---.--.\            #
+  #         `\\/`~(, '()      ('           #
+  #          /(O) \\   _,.-.,_)            #
+  #         //  \\ `\'`      /             #
+  #   jgs  / |  ||   `""""~"`              #
+  #      /'  |__||                         #
+  #            `o                          #
+  ##########################################
+        )";
 }
