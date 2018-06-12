@@ -3,15 +3,16 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 const string GAME_PROMO = "Bulls and Cows - a genius word game";
+constexpr int WORLD_LENGTH = 5;
 
 //prototypes
 void printWelcomeMessage(string message);
 void drawCowPictureInAscii();
-
-
 
 
 int main()
@@ -22,8 +23,21 @@ int main()
 
 void printWelcomeMessage(string message)
 {
-	printf("Welcome to %s ! \n", message);
+	cout << "Welcome to " << message << "! \n";
 	drawCowPictureInAscii();
+
+	cout << "Can you guess the " << WORLD_LENGTH << " letter isogram I am thinking off?" << endl;
+	
+	cout << "Enter your guess: ";
+	string Guess = "";
+	cin >> Guess;
+
+	cout << "Your guess was : " << Guess << endl;
+
+	system("pause");
+	
+
+
 }
 
 void drawCowPictureInAscii()
