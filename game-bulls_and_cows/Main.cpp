@@ -14,10 +14,18 @@ constexpr int WORLD_LENGTH = 5;
 void printWelcomeMessage(string message);
 void drawCowPictureInAscii();
 
-
 int main()
 {
 	printWelcomeMessage(GAME_PROMO);
+	cout << "Can you guess the " << WORLD_LENGTH << " letter isogram I am thinking off?" << endl;
+
+	cout << "Enter your guess: ";
+	string Guess = "";
+	cin >> Guess;
+
+	cout << "Your guess was : " << Guess << endl;
+
+	system("pause");
 	return 0;
 }
 
@@ -26,18 +34,7 @@ void printWelcomeMessage(string message)
 	cout << "Welcome to " << message << "! \n";
 	drawCowPictureInAscii();
 
-	cout << "Can you guess the " << WORLD_LENGTH << " letter isogram I am thinking off?" << endl;
 	
-	cout << "Enter your guess: ";
-	string Guess = "";
-	cin >> Guess;
-
-	cout << "Your guess was : " << Guess << endl;
-
-	system("pause");
-	
-
-
 }
 
 void drawCowPictureInAscii()
@@ -63,4 +60,5 @@ void drawCowPictureInAscii()
   #            `o                          #
   ##########################################
         )";
+	cout << endl;
 }
