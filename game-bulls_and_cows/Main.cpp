@@ -8,36 +8,48 @@
 using namespace std;
 
 const string GAME_PROMO = "Bulls and Cows - a genius word game";
-constexpr int WORLD_LENGTH = 5;
+
 
 //prototypes
-void printWelcomeMessage(string message);
-void drawCowPictureInAscii();
+void PrintIntro(string message);
+string GetGuessAndPrintBack();
+void PrintPromptMessage(int numberOfcharsInWord);
+void DrawCowPictureInAscii();
 
 int main()
 {
-	printWelcomeMessage(GAME_PROMO);
-	cout << "Can you guess the " << WORLD_LENGTH << " letter isogram I am thinking off?" << endl;
-
-	cout << "Enter your guess: ";
-	string Guess = "";
-	cin >> Guess;
-
-	cout << "Your guess was : " << Guess << endl;
-
+	PrintIntro(GAME_PROMO);
+	string GuessTyped = GetGuessAndPrintBack();
+	
 	system("pause");
 	return 0;
 }
 
-void printWelcomeMessage(string message)
+void PrintPromptMessage(int numberOfcharsInWord)
 {
+	cout << "Can you guess the " << numberOfcharsInWord << " letter isogram I am thinking off?" << endl;
+}
+
+string GetGuessAndPrintBack()
+{
+	string Guess = "";
+	cout << "Enter your guess: ";
+	getline(cin, Guess);
+	cout << "Your guess was : " << Guess << endl;
+	return Guess;
+}
+
+void PrintIntro(string message)
+{
+	constexpr int WORLD_LENGTH = 5;
 	cout << "Welcome to " << message << "! \n";
-	drawCowPictureInAscii();
+	DrawCowPictureInAscii();
+	PrintPromptMessage(WORLD_LENGTH);
 
 	
 }
 
-void drawCowPictureInAscii()
+void DrawCowPictureInAscii()
 {
 	cout << R"(
   ##########################################
