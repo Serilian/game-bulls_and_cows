@@ -19,7 +19,7 @@ void DrawCowPictureInAscii();
 int main()
 {
 	PrintIntro(GAME_PROMO);
-	string GuessTyped = GetGuessAndPrintBack();
+	GetGuessAndPrintBack();
 	
 	system("pause");
 	return 0;
