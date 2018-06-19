@@ -16,22 +16,55 @@ void PrintIntro(string message);
 string GetGuess();
 void PrintToConsole(std::string &Guess);
 void PrintPromptMessage(int numberOfcharsInWord);
+int main();
 void StartGame();
 void DrawCowPictureInAscii();
+bool PlayerWantsToPlayAgain();
+bool IsCorrectAnswer(string answer);
 
 int main()
 {
 	PrintIntro(GAME_PROMO);
-	StartGame();
+	do
+	{
+		StartGame();
+	} while (PlayerWantsToPlayAgain());
 
 	return 0;
+}
+
+bool PlayerWantsToPlayAgain()
+{
+	string answer;
+	bool playAgain = false;
+	do
+	{
+		cout << "Would you like to play again? (Y/N)" << endl;
+		getline(cin, answer);
+		cout << endl;
+		if (answer == "Y" or answer == "y")
+		{
+			playAgain = true;
+		}
+		else if (answer == "Y" or answer == "y")
+		{
+			playAgain = false;
+		}
+	} while (!IsCorrectAnswer(answer));
+	return playAgain;
+}
+
+bool IsCorrectAnswer(string answer)
+{
+	return answer == "Y" || answer == "y" || answer == "n" || answer == "N";
 }
 
 void StartGame()
 {
 	string Guess = "";
 
-	for (int i = 0; i < NUMBER_OF_TURNS; i++) {
+	for (int i = 0; i < NUMBER_OF_TURNS; i++)
+	{
 		Guess = GetGuess();
 		PrintToConsole(Guess);
 		cout << endl;
