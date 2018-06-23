@@ -4,23 +4,23 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
-
-using namespace std;
+#include "FBullCowGame.h"
 
 constexpr int WORLD_LENGTH = 5;
-const string GAME_PROMO = "Bulls and Cows - a genius word game";
+const std::string GAME_PROMO = "Bulls and Cows - a genius word game";
 const int NUMBER_OF_TURNS = WORLD_LENGTH * 1;
 
 //prototypes
-void PrintIntro(string message);
-string GetGuess();
+void PrintIntro(std::string message);
+std::string GetGuess();
 void PrintToConsole(std::string &Guess);
 void PrintPromptMessage(int numberOfcharsInWord);
 int main();
+void SayGoobye();
 void StartGame();
 void DrawCowPictureInAscii();
-bool PlayerWantsToPlayAgain();
-bool IsCorrectAnswer(string answer);
+bool bPlayerWantsToPlayAgain();
+bool IsCorrectAnswer(std::string answer);
 
 int main()
 {
@@ -28,20 +28,27 @@ int main()
 	do
 	{
 		StartGame();
-	} while (PlayerWantsToPlayAgain());
+	} while (bPlayerWantsToPlayAgain());
+
+	SayGoobye();
 
 	return 0;
 }
 
-bool PlayerWantsToPlayAgain()
+void SayGoobye()
 {
-	string answer;
+	std::cout << "Thank you for playing!" << std::endl << "Have a great day!!" << std::endl;
+}
+
+bool bPlayerWantsToPlayAgain()
+{
+	std::string answer;
 	bool playAgain = false;
 	do
 	{
-		cout << "Would you like to play again? (Y/N)" << endl;
-		getline(cin, answer);
-		cout << endl;
+		std::cout << "Would you like to play again? (Y/N)" << std::endl;
+		std::getline(std::cin, answer);
+		std::cout << std::endl;
 		if (answer == "Y" or answer == "y")
 		{
 			playAgain = true;
@@ -54,51 +61,51 @@ bool PlayerWantsToPlayAgain()
 	return playAgain;
 }
 
-bool IsCorrectAnswer(string answer)
+bool IsCorrectAnswer(std::string answer)
 {
 	return answer == "Y" || answer == "y" || answer == "n" || answer == "N";
 }
 
 void StartGame()
 {
-	string Guess = "";
+	std::string Guess = "";
 
 	for (int i = 0; i < NUMBER_OF_TURNS; i++)
 	{
 		Guess = GetGuess();
 		PrintToConsole(Guess);
-		cout << endl;
+		std::cout << std::endl;
 	}
 }
 
 void PrintPromptMessage(int numberOfcharsInWord)
 {
-	cout << "Can you guess the " << numberOfcharsInWord << " letter isogram I am thinking off?" << endl;
+	std::cout << "Can you guess the " << numberOfcharsInWord << " letter isogram I am thinking off?" << std::endl;
 }
 
-string GetGuess()
+std::string GetGuess()
 {
-	string Guess = "";
-	cout << "Enter your guess: ";
-	getline(cin, Guess);
+	std::string Guess = "";
+	std::cout << "Enter your guess: ";
+	std::getline(std::cin, Guess);
 	return Guess;
 }
 
 void PrintToConsole(std::string &Guess)
 {
-	cout << "Your guess was : " << Guess << endl;
+	std::cout << "Your guess was : " << Guess << std::endl;
 }
 
-void PrintIntro(string message)
+void PrintIntro(std::string message)
 {
-	cout << "Welcome to " << message << "! \n";
+	std::cout << "Welcome to " << message << "! \n";
 	DrawCowPictureInAscii();
 	PrintPromptMessage(WORLD_LENGTH);
 }
 
 void DrawCowPictureInAscii()
 {
-	cout << R"(
+	std::cout << R"(
   ##########################################
   #            .=     ,        =.          #
   #   _  _   /'/    )\,/,/(_   \ \         #
@@ -119,5 +126,5 @@ void DrawCowPictureInAscii()
   #            `o                          #
   ##########################################
         )";
-	cout << endl;
+	std::cout << std::endl;
 }
