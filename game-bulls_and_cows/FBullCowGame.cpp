@@ -1,21 +1,22 @@
 #include "stdafx.h"
 #include "FBullCowGame.h"
 
+int FBullCowGame::GetCurrentTry() const
+{
+	return MyCurrentTry;
+}
+
+int FBullCowGame::GetMaxTries() const
+{
+	return MyMaxTries;
+}
+
 void FBullCowGame::Reset()
 {
+	return;
 }
 
-int FBullCowGame::GetCurrentTry()
-{
-	return 0;
-}
-
-int FBullCowGame::GetMaxTries()
-{
-	return 0;
-}
-
-bool FBullCowGame::isGameWon()
+bool FBullCowGame::isGameWon() const
 {
 	return false;
 }

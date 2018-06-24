@@ -9,6 +9,7 @@
 constexpr int WORLD_LENGTH = 5;
 const std::string GAME_PROMO = "Bulls and Cows - a genius word game";
 const int NUMBER_OF_TURNS = WORLD_LENGTH * 1;
+FBullCowGame BCGame;
 
 //prototypes
 void PrintIntro(std::string message);
@@ -68,12 +69,15 @@ bool IsCorrectAnswer(std::string answer)
 
 void StartGame()
 {
+	int MaxTries = BCGame.GetMaxTries();
+
 	std::string Guess = "";
 
-	for (int i = 0; i < NUMBER_OF_TURNS; i++)
+	for (int i = 1; i <= MaxTries; i++)
 	{
 		Guess = GetGuess();
 		PrintToConsole(Guess);
+		std::cout << "Remaining guesses: " << MaxTries - i << std::endl;
 		std::cout << std::endl;
 	}
 }
@@ -85,8 +89,9 @@ void PrintPromptMessage(int numberOfcharsInWord)
 
 std::string GetGuess()
 {
+	int CurrentTry = BCGame.GetCurrentTry();
 	std::string Guess = "";
-	std::cout << "Enter your guess: ";
+	std::cout << "Try " << CurrentTry << ". " << "Enter your guess: ";
 	std::getline(std::cin, Guess);
 	return Guess;
 }
